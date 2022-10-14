@@ -12,11 +12,12 @@ class CategoryIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(5),
-      decoration: BoxDecoration(
-        color: bgColor,
-        shape: BoxShape.circle
+      decoration: BoxDecoration(color: bgColor, shape: BoxShape.circle),
+      child: Icon(
+        iconData,
+        size: 30,
+        //color: Colors.white,
       ),
-      child: Icon(iconData, size: 30, color: Colors.white,),
     );
   }
 }

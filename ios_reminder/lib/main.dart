@@ -22,8 +22,21 @@ class App extends StatelessWidget {
         appBarTheme: AppBarTheme(
           color: Colors.black,
         ),
+          iconTheme: IconThemeData(color: Colors.white),
+          accentColor: Colors.white,
+          accentIconTheme: IconThemeData(color: Colors.white),
+          textButtonTheme: TextButtonThemeData(
+            style: TextButton.styleFrom(
+              primary: Colors.blueAccent,
+              textStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20
+              )
+            )
+          ),
           brightness: Brightness.dark,
       ),
+
 
     );
   }

@@ -39,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               child: Text(
                 layoutType == 'grid' ? 'Edit' : 'Done',
-                style: TextStyle(color: Colors.white),
+                //style: TextStyle(color: Colors.white),
               ))
         ],
       ),

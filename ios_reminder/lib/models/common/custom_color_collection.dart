@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
 
 import 'custom_color.dart';
@@ -12,4 +14,11 @@ class CustomColorCollection{
     CustomColor(id: 'yellow_accent', color: Colors.yellowAccent),
 
   ];
+
+  UnmodifiableListView<CustomColor> get colors=> UnmodifiableListView(_colors);
+
+  CustomColor findColorById(id) {
+    return _colors.firstWhere((customColor) => customColor.id == id);
+  }
+
 }
