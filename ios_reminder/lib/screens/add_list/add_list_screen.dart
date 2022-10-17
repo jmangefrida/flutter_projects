@@ -3,6 +3,7 @@ import 'package:ios_reminder/models/common/custom_color.dart';
 import 'package:ios_reminder/models/common/custom_color_collection.dart';
 import 'package:ios_reminder/models/common/custom_icon.dart';
 import 'package:ios_reminder/models/common/custom_icon_collection.dart';
+import 'package:ios_reminder/models/todo_list/todo_list.dart';
 
 class AddListScreen extends StatefulWidget {
   @override
@@ -17,6 +18,7 @@ class _AddListScreenState extends State<AddListScreen> {
 
   String _listName = '';
 
+  @override
   void initState(){
     super.initState();
     _textController.addListener(() {
@@ -29,6 +31,12 @@ class _AddListScreenState extends State<AddListScreen> {
   }
 
   @override
+  void dispose(){
+    super.dispose();
+    _textController.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -37,7 +45,8 @@ class _AddListScreenState extends State<AddListScreen> {
           TextButton(
             onPressed: _listName.isEmpty? null : () {
               if (_textController.text.isNotEmpty) {
-                print('add to database');
+                //print('add to database');
+                Navigator.pop(context, TodoList(id: '1', title: _textController.text, icon: {'id': selectedIcon.id, 'color': selectedColor.color}));
               } else {
                 print('Please enter a list name');
               }
