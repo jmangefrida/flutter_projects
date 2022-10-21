@@ -10,7 +10,7 @@ class CustomIconCollection{
     CustomIcon(icon: CupertinoIcons.bars, id: 'bars'),
     CustomIcon(icon: CupertinoIcons.alarm, id: 'alarm'),
     CustomIcon(icon: CupertinoIcons.airplane, id: 'airplane'),
-    CustomIcon(icon: CupertinoIcons.calendar_today, id: 'calenar'),
+    CustomIcon(icon: CupertinoIcons.calendar_today, id: 'calendar'),
     CustomIcon(icon: CupertinoIcons.waveform_path, id: 'waveform'),
     CustomIcon(icon: CupertinoIcons.person, id: 'person')
   ];

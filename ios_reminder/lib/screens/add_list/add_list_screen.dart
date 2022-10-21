@@ -46,7 +46,7 @@ class _AddListScreenState extends State<AddListScreen> {
             onPressed: _listName.isEmpty? null : () {
               if (_textController.text.isNotEmpty) {
                 //print('add to database');
-                Navigator.pop(context, TodoList(id: '1', title: _textController.text, icon: {'id': selectedIcon.id, 'color': selectedColor.color}));
+                Navigator.pop(context, TodoList(id: '1', title: _textController.text, icon: {'id': selectedIcon.id, 'color': selectedColor.id}));
               } else {
                 print('Please enter a list name');
               }
