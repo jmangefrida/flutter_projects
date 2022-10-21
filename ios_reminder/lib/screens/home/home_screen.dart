@@ -6,6 +6,7 @@ import 'package:ios_reminder/models/category/category_collection.dart';
 import 'package:ios_reminder/models/common/custom_icon_collection.dart';
 import 'package:ios_reminder/models/todo_list/todo_list.dart';
 import 'package:ios_reminder/models/todo_list/todo_list_collection.dart';
+import 'package:ios_reminder/screens/home/widgets/todo_lists.dart';
 import 'package:provider/provider.dart';
 
 import '../../models/common/custom_color_collection.dart';
@@ -26,19 +27,13 @@ class _HomeScreenState extends State<HomeScreen> {
   String layoutType = 'grid';
   //List<TodoList> todoLists = [];
 
-  addNewList(TodoList list) {
-    print('add list from home screen');
-    print(list.title);
-    Provider.of<TodoListCollection> (context, listen: false).addTodoList(list);
-    // setState(() {
-    //   todoLists.add(list);
-    // });
 
-  }
+
+
 
   @override
   Widget build(BuildContext context) {
-    var todoLists = Provider.of<TodoListCollection>(context);
+
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -78,43 +73,12 @@ class _HomeScreenState extends State<HomeScreen> {
               //    ? GridViewItems(categories: categoryCollection.selectedCategories)
               //    : ListViewItems(categoryCollection: categoryCollection)),
               Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('My Lists', style: Theme.of(context).textTheme.headline6!.copyWith(fontWeight: FontWeight.bold)),
-                      ListView.builder(
-                        shrinkWrap: true,
-                          itemCount: todoLists.todoLists.length,
-                          itemBuilder: (context, index) {
-                            return Card(
-                              elevation: 0,
-                              margin: EdgeInsets.zero,
-                              child: ListTile(
-                                 leading: CategoryIcon(
-                                   bgColor: CustomColorCollection().findColorById(todoLists.todoLists[index].icon['color']).color,
-                                iconData: CustomIconCollection().findIconById(todoLists.todoLists[index].icon['id']).icon,
-                                //   bgColor: (CustomColorCollection().findColorById(
-                                //     todoLists.todoLists[index].icon['color']).color),
-                                //   iconData: (CustomIconCollection().findIconById(
-                                //     todoLists.todoLists[index].icon['id']
-                                //   )
-                                //
-                                //   ).icon,
-                                 ),
-                                title: Text(todoLists.todoLists[index].title),
-
-                              ),
-                            );
-                          }),
-                    ],
-                  ),
-                ),
+                child: TodoLists(),
               ),
-              Footer(addNewListCallback: addNewList),
+              Footer(),
             ],
           )),
     );
   }
 }
+
